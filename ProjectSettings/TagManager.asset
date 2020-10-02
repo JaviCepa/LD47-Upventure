@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ladder
+  - FxTemporaire
+  - WallSlide
   layers:
   - Default
   - TransparentFX
@@ -13,14 +16,14 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ladders
+  - Passthrough
+  - Character
+  - Enemy_Hazard
+  - GeometryAlternate
+  - FXPhysics
+  - CharacterProjectile
+  - Collectable_Projectile
   - 
   - 
   - 
@@ -40,4 +43,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2037564687
+    locked: 0
+  - name: MainGeometry
+    uniqueID: 3987756161
+    locked: 0
+  - name: Character
+    uniqueID: 2436630387
+    locked: 0
+  - name: Foreground
+    uniqueID: 947601901
     locked: 0

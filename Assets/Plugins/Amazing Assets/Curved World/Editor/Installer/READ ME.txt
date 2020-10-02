@@ -1,0 +1,13 @@
+Curved World asset contains 3 packages for each render pipeline:
+
+1) Built-in - package for built-in (default) render pipeline.
+2) Universal - package for Universal scriptable render pipeline (URP).
+2) High Definition - package for High Definition scriptable render pipeline (HDRP).
+
+Based on project's render pipeline import one of the provided package.
+
+
+Curved World minimum requirements:
+• Unity version 2019.4
+• Universal RP 7.4.1
+• High Definition RP 7.4.1

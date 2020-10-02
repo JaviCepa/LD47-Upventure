@@ -1,0 +1,126 @@
+Platformer PRO
+Version: 2.3.0
+
+Welcome to Platformer PRO use the menu for help -> Assets/Platformer PRO/Show Welcome
+
+----------------
+Version History
+----------------
+
+2.3.0
+----------------
+Features
+- New attack animation syncing to drive attack timing and hit boxes from mecanim
+- EventResponders in a scene can now listen to character events for characters that are loaded in to the scene
+ 
+Enhancements
+- New event for camera zone switches
+- New interrupts for graph based enemies (send a message to the enemy to change enemy behaviour)
+- Music player can now randomise songs
+- MovementVariableCount is now protected everywhere to allow for easier movement extension
+- GameManager now defaults to the faster binary saving. EXISTING USERS: Please note this change!
+
+Fixes
+- Four way climbing now properly sends left and right climb states
+- Fix to Graph Driven Enemy AI interrupts
+
+2.2.0
+----------------
+Features
+- New graph based enemy AIs. Visually design your enemy behaviour
+- All triggers can now automatically act as switches and have switch state saved in scene
+
+Enhancements
+- Option for binary save which is much faster (Upgrading users: please clear your player preferences)
+- New additional conditions (PlatformActivatedCondition, GameObjectActiveCondition, DoorIsOpenCondition)
+- Event responder UI clean-up, plus some new events
+
+Fixes
+- Clean up facing direction changes on respawn
+
+2.1.0
+----------------
+Features
+- Significant overhaul and improvement to RPG Items
+- Crouch can now be switched to toggle mode
+- Particle Bridge Improvements (e.g. rotate particle system based on facing direction)
+- Save facing direction between scenes and set facing direction for respawn points
+
+Enhancements
+- Allow IgnoreCollision platforms to also cause walls to be ignored
+- Min time for land is now a variable on landing movements
+- More animation states added
+- Ability to 'consume' a button press, so it not considered a button DOWN event by other Input checkers
+
+Fixes
+- Fixed Inspector for Animation per DamageType movement
+- Fixed bug in EventResponder->Enable/Disable which prevented Component from being attached
+- Fixed bug in EventResponder->Show Dialog action issue with CharacterEvents
+- Fixed tile brushes not being imported correctly in some Unity versions
+
+2.0.5
+----------------
+Features
+- Auto equip weapons and armor
+- Improvements to dropping items and weapons
+- New Dialog System with visual editor
+- Clean-up for Item/Inventory methods
+
+Fixes
+- SequenceDrivenEnemy inspector now lets you set sight/hearing layers in newer Unity versions
+- Removed PrefabBrush which caused issues in 2019.x
+
+Other Changes
+- Changed the Alien sample default controller to match a more typical windows/XBox controller
+
+2.0.4
+----------------
+Features
+- Improvements to enable easy sync of projectiles with complex animations
+- New UI renderers for rendering any value as a series of images
+- Minor improvements to Enemy damage 
+- New equip action bar button so you can add buttons to equip/unequip items
+
+Fixes
+- Item manager resource loading improvements
+
+Other Changes
+- Removed the UNIQUE item class, if you want a unique item just set type.itemMax to 1
+- Changed default controller setup to reflect X-Box like controller on windows
+
+2.0.3
+----------------
+Features
+- New shop system!
+- Consumable items can now be equippable (e.g. equip different ammo for the same gun)
+
+Fixes
+- Make Ammo in the Alien Sample CONSUMABLE so it is used up when you shoot
+- Added facing direction to enemy waypoint mover
+
+2.0.2
+----------------
+Features
+- Ability to automatically load the last loaded scene when you continue a game
+
+Fixes
+- Clean up Alien sample for mobile deployment
+- Clean up CommandBro sample for mobile deployment
+- Fixed issue with some swim/breath configurations
+
+2.0.1
+----------------
+Features
+- New elevator platform type which allows you to stop ad different 'floors'
+- UI effects can now work in local or global space
+
+Fixes
+- Fixes for default weapon in CommandBro sample
+- Fix for bobble damage movement on moving platforms
+- Change default simple land speed
+- Fix for initialisation of damage on land movement
+
+
+2.0.0
+----------------
+First release in the 'Platformer PRO 2' Stream
