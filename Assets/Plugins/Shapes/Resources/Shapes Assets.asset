@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f955276368c7067498ef9ffabb02f585, type: 3}
+  m_Name: Shapes Assets
+  m_EditorClassIdentifier: 
+  defaultFont: {fileID: 11400000, guid: 447003388b8c22f47aacbef1eda020b3, type: 2}
+  meshCube: {fileID: 4300008, guid: 93e008a3a312f6041bb52f2c0413bc68, type: 3}
+  meshSphere: {fileID: 4300002, guid: 93e008a3a312f6041bb52f2c0413bc68, type: 3}
+  meshTorus: {fileID: 4300004, guid: 93e008a3a312f6041bb52f2c0413bc68, type: 3}
+  meshCapsule: {fileID: 4300000, guid: 93e008a3a312f6041bb52f2c0413bc68, type: 3}
+  meshCylinder: {fileID: 4300006, guid: 93e008a3a312f6041bb52f2c0413bc68, type: 3}
+  meshCone: {fileID: 4300010, guid: 93e008a3a312f6041bb52f2c0413bc68, type: 3}
+  meshConeUncapped: {fileID: 4300012, guid: 93e008a3a312f6041bb52f2c0413bc68, type: 3}
+  discIconSolid: {fileID: 2800000, guid: 0527322156d13b448ac86c67d1e4bf21, type: 3}
+  discIconPie: {fileID: 2800000, guid: 1bb1e768e4e6124408b66aa3b075de24, type: 3}
+  discIconHollow: {fileID: 2800000, guid: 4043c1e6748f4fc448d32ea914153fea, type: 3}
+  discIconArc: {fileID: 2800000, guid: dc21de0b921155b43bff701c8a38a2ec, type: 3}
+  lineCapNone: {fileID: 2800000, guid: d61aa34750235414899d8fd087d2fe71, type: 3}
+  lineCapSquare: {fileID: 2800000, guid: d643f146eb7927a4a91006568881f000, type: 3}
+  lineCapRound: {fileID: 2800000, guid: adc35c618cd2d3941b89d4f15fe56951, type: 3}
+  rectIconHardSolid: {fileID: 2800000, guid: 427dff9982ea9a24eb3fe275d70427f5, type: 3}
+  rectIconHardHollow: {fileID: 2800000, guid: a6561d023b0f85a40bcfc164c6a11e26, type: 3}
+  rectIconRoundedSolid: {fileID: 2800000, guid: c2519caa63dd2f7478652f5b751351f7,
+    type: 3}
+  rectIconRoundedHollow: {fileID: 2800000, guid: d00436d75387777488bd738362d5d5c4,
+    type: 3}
+  packageJson: {fileID: 4900000, guid: f565d72a45b057844864991b801d3426, type: 3}
