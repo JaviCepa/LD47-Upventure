@@ -258,7 +258,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 304f7d0d312234340bbc19d4a285304a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -443,52 +443,52 @@ MonoBehaviour:
     length: 0
     raycastType: 4
     lookAhead: 0
-    extent: {x: -0.17135009, y: -1.2449696}
+    extent: {x: -0.17633392, y: -1.1459537}
     layerMask: 0
   - transform: {fileID: 5492705463583779346}
     length: 0
     raycastType: 4
     lookAhead: 0
-    extent: {x: 0.17135009, y: -1.2449696}
+    extent: {x: 0.17633392, y: -1.1459537}
     layerMask: 0
   leftColliders:
   - transform: {fileID: 5492705463583779346}
     length: 0
     raycastType: 1
     lookAhead: 0
-    extent: {x: -0.25195962, y: -1.1197373}
+    extent: {x: -0.24381244, y: -1.0328338}
     layerMask: 0
   - transform: {fileID: 5492705463583779346}
     length: 0
     raycastType: 1
     lookAhead: 0
-    extent: {x: -0.25195962, y: -0.57519937}
+    extent: {x: -0.24381244, y: -0.57519937}
     layerMask: 0
   rightColliders:
   - transform: {fileID: 5492705463583779346}
     length: 0
     raycastType: 2
     lookAhead: 0
-    extent: {x: 0.25195962, y: -1.1197373}
+    extent: {x: 0.24381244, y: -1.0328338}
     layerMask: 0
   - transform: {fileID: 5492705463583779346}
     length: 0
     raycastType: 2
     lookAhead: 0
-    extent: {x: 0.25195962, y: -0.57519937}
+    extent: {x: 0.24381244, y: -0.57519937}
     layerMask: 0
   headColliders:
   - transform: {fileID: 5492705463583779346}
-    length: 0.44306624
+    length: 0.36157376
     raycastType: 8
     lookAhead: 0
-    extent: {x: -0.17155223, y: -0.3669138}
+    extent: {x: -0.1980275, y: -0.42280614}
     layerMask: 0
   - transform: {fileID: 5492705463583779346}
-    length: 0.44306624
+    length: 0.36157376
     raycastType: 8
     lookAhead: 0
-    extent: {x: 0.17155223, y: -0.3669138}
+    extent: {x: 0.1980275, y: -0.42280614}
     layerMask: 0
   detectLaddersByTag: 0
   ladderLayerOrTagName: 
