@@ -1,21 +1,56 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace PlatformerPro
+namespace UnityEngine
 {
-	[Serializable]
-	[CreateAssetMenu]
-	public class PlatformerProRuleTile : TileBase
-	{
-		public Sprite m_DefaultSprite;
+    [Serializable]
+    [CreateAssetMenu]
+    public class AdvancedRuleTile : TileBase {
+        
+        public Sprite m_DefaultSprite;
 		public Tile.ColliderType m_DefaultColliderType = Tile.ColliderType.Sprite;
+        #region possible fix for new versions
+        public TileBase m_Self {
+            get { return m_OverrideSelf ? m_OverrideSelf : this; }
+            set { m_OverrideSelf = value; }
+        }
+        private TileBase m_OverrideSelf;
+        #endregion
 
-		[Serializable]
+        #region Advanced Tile Rules
+        public string[] RuleNames = new string[13];
+        public bool firstExists = true;
+        public bool These = false;
+        public byte DefaultNumOfThese;
+        public byte[] TheseNumberOfTiles;
+        //public TileBase[][] TheseSprites = new TileBase[7][];
+        public byte NotZero = 8;
+        public bool firstExists2 = true;
+        public bool NotThese = false;
+        public byte DefaultNumOfNotThese;
+        public byte[] NotTheseNumberOfTiles;
+        //public TileBase[][] NotTheseSprites = new TileBase[6][];
+
+        public TileBase[] t1;
+        public TileBase[] t2;
+        public TileBase[] t3;
+        public TileBase[] t4;
+        public TileBase[] t5;
+        public TileBase[] t6;
+        public TileBase[] t7; //because unity doesn't support serialization of jagged arrays
+        public TileBase[] n1;
+        public TileBase[] n2;
+        public TileBase[] n3;
+        public TileBase[] n4;
+        public TileBase[] n5;
+        public TileBase[] n6;
+        #endregion
+
+        [Serializable]
 		public class TilingRule
 		{
-			public Neighbor[] m_Neighbors;
+            public Neighbor[] m_Neighbors;
 			public Sprite[] m_Sprites;
 			public float m_AnimationSpeed;
 			public float m_PerlinScale;
@@ -23,30 +58,23 @@ namespace PlatformerPro
 			public OutputSprite m_Output;
 			public Tile.ColliderType m_ColliderType;
 			public Transform m_RandomTransform;
-			public TileType m_TileType;
-			public MovementVariable[] m_supportingData;
-			public string m_guid;
-			public bool instatianteInEditor;
-			
-			public TilingRule()
+
+            public TilingRule()
 			{
-				m_Output = OutputSprite.Single;
+                m_Output = OutputSprite.Single;
 				m_Neighbors = new Neighbor[8];
 				m_Sprites = new Sprite[1];
 				m_AnimationSpeed = 1f;
 				m_PerlinScale = 0.5f;
 				m_ColliderType = Tile.ColliderType.Sprite;
-				m_TileType = TileType.Basic;
-				m_supportingData = new MovementVariable[0];
-				m_guid = System.Guid.NewGuid().ToString();
-				for (int i=0; i < m_Neighbors.Length; i++) m_Neighbors[i] = Neighbor.DontCare;
+
+				for(int i=0; i<m_Neighbors.Length; i++)
+					m_Neighbors[i] = Neighbor.DontCare;
 			}
 
 			public enum Transform { Fixed, Rotated, MirrorX, MirrorY }
-			public enum Neighbor { DontCare, This, NotThis }
-			public enum OutputSprite { Single, Random, Animation }
-			public enum TileType { Basic, Platform, Generic_Prefab, Hazard, Ladder} 
-			
+			public enum Neighbor { DontCare, This, NotThis, These1, These2, These3, These4, These5, These6, These7, NotThese1, NotThese2, NotThese3, NotThese4, NotThese5, NotThese6 }
+            public enum OutputSprite { Single, Random, Animation }
 		}
 
 		[HideInInspector] public List<TilingRule> m_TilingRules;
@@ -63,12 +91,10 @@ namespace PlatformerPro
 				Matrix4x4 transform = Matrix4x4.identity;
 				if (RuleMatches(rule, position, tileMap, ref transform))
 				{
-					
 					switch (rule.m_Output)
 					{
 							case TilingRule.OutputSprite.Single:
 							case TilingRule.OutputSprite.Animation:
-								 
 								tileData.sprite = rule.m_Sprites[0];
 							break;
 							case TilingRule.OutputSprite.Random:
@@ -80,21 +106,6 @@ namespace PlatformerPro
 					}
 					tileData.transform = transform;
 					tileData.colliderType = rule.m_ColliderType;
-					switch (rule.m_TileType)
-					{
-						case TilingRule.TileType.Hazard:
-							tileData.gameObject = rule.m_supportingData[0].GameObjectValue;
-							tileData.flags = tileData.flags | TileFlags.InstantiateGameObjectRuntimeOnly;
-							break;
-                        case TilingRule.TileType.Ladder:
-                            tileData.gameObject = rule.m_supportingData[0].GameObjectValue;
-                            tileData.flags = tileData.flags | TileFlags.InstantiateGameObjectRuntimeOnly;
-                            break;
-                        case TilingRule.TileType.Generic_Prefab:
-							tileData.gameObject = rule.m_supportingData[0].GameObjectValue;
-							tileData.flags = tileData.flags | TileFlags.InstantiateGameObjectRuntimeOnly;
-							break;
-					}
 					break;
 				}
 			}
@@ -195,7 +206,7 @@ namespace PlatformerPro
 						Vector3Int rotated = GetRotatedPos(offset, angle);
 						int index = GetIndexOfOffset(rotated);
 						TileBase tile = tilemap.GetTile(position + offset);
-						if (rule.m_Neighbors[index] == TilingRule.Neighbor.This && tile != this || rule.m_Neighbors[index] == TilingRule.Neighbor.NotThis && tile == this)
+                        if (ReturnFalseIf(rule, tile, rule.m_Neighbors[index]))
 						{
 							return false;
 						}	
@@ -205,6 +216,80 @@ namespace PlatformerPro
 			}
 			return true;
 		}
+
+        private bool ReturnFalseIf(TilingRule rule, TileBase tile, TilingRule.Neighbor RULE) {
+            TileBase[] Q;
+            #region this is bad
+            switch ((int)RULE) {
+                case 3:
+                    Q = t1;
+                    break;
+                case 4:
+                    Q = t2;
+                    break;
+                case 5:
+                    Q = t3;
+                    break;
+                case 6:
+                    Q = t4;
+                    break;
+                case 7:
+                    Q = t5;
+                    break;
+                case 8:
+                    Q = t6;
+                    break;
+                case 9:
+                    Q = t7;
+                    break;
+                case 10:
+                    Q = n1;
+                    break;
+                case 11:
+                    Q = n2;
+                    break;
+                case 12:
+                    Q = n3;
+                    break;
+                case 13:
+                    Q = n4;
+                    break;
+                case 14:
+                    Q = n5;
+                    break;
+                case 15:
+                    Q = n6;
+                    break;
+                default:
+                    Q = t1;
+                    break;
+            }
+            #endregion
+
+            if (RULE == TilingRule.Neighbor.This && tile == m_Self || RULE == TilingRule.Neighbor.NotThis && tile != m_Self)
+                return false;
+            if ((int)RULE > 2 && (int)RULE < 10) {
+                foreach (TileBase q in Q) { //No, .Contains() does not exist for TileBase[]
+                    if (q == tile)
+                        return false;
+                }
+                return true;
+            }
+            if ((int)RULE > 9) {
+                foreach (TileBase q in Q) {
+                    if (q == tile)
+                        return true;
+                }
+                return false;
+            }
+            if (RULE == TilingRule.Neighbor.DontCare)
+                return false;
+            return true;
+        }
+
+
+
+
 
 		public bool RuleMatches(TilingRule rule, Vector3Int position, ITilemap tilemap, bool mirrorX, bool mirrorY)
 		{
@@ -218,8 +303,8 @@ namespace PlatformerPro
 						Vector3Int mirrored = GetMirroredPos(offset, mirrorX, mirrorY);
 						int index = GetIndexOfOffset(mirrored);
 						TileBase tile = tilemap.GetTile(position + offset);
-						if (rule.m_Neighbors[index] == TilingRule.Neighbor.This && tile != this || rule.m_Neighbors[index] == TilingRule.Neighbor.NotThis && tile == this)
-						{
+						if (ReturnFalseIf(rule, tile, rule.m_Neighbors[index]))
+                        {
 							return false;
 						}
 					}
@@ -257,43 +342,5 @@ namespace PlatformerPro
 		{
 			return new Vector3Int(original.x * (mirrorX ? -1 : 1), original.y * (mirrorY ? -1 : 1), original.z);
 		}
-		
-		override public bool StartUp(Vector3Int position, ITilemap tilemap, GameObject go)
-		{
-			if (Application.isPlaying) {
-				foreach (TilingRule rule in m_TilingRules)
-				{				
-					Matrix4x4 transform = Matrix4x4.identity;
-					if (RuleMatches(rule, position, tilemap, ref transform) && go != null &&
-					    (rule.m_TileType == TilingRule.TileType.Hazard || rule.m_TileType == TilingRule.TileType.Ladder))
-					{
-						switch (rule.m_TileType)
-						{
-							case TilingRule.TileType.Hazard:
-								Hazard h = go.GetComponent<Hazard>();
-								if (h == null)
-								{
-									Debug.LogWarning("Hazard tile didn't have a Hazard attached to its prefab. It wont work!");
-									return true;
-								}
-								h.damageAmount = rule.m_supportingData[1].IntValue;
-								h.damageType = (DamageType)rule.m_supportingData[2].IntValue;
-								break;
-                            case TilingRule.TileType.Ladder:
-                                BoxCollider2D c = go.GetComponentInChildren<BoxCollider2D>();
-                                if (c == null)
-                                {
-                                    Debug.LogWarning("ladder tile didn't have a BoxCollider2D attached to its prefab. It wont work!");
-                                    return true;
-                                }
-                                break;
-
-                        }
-						return true;
-					}
-				}
-			}
-			return true;
-		}
-	}
+    }
 }
