@@ -21,7 +21,13 @@ public class ChangeLevelGateway : MonoBehaviour
         }
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Comprobar si sale por el lado opuesto
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
         var character = collision.gameObject.GetComponentInParent<Character>();
         if (character != null && Time.time - lastUseTime > cooldown)
@@ -37,9 +43,8 @@ public class ChangeLevelGateway : MonoBehaviour
         var cameraDelta = proCamera.transform.position - character.transform.position;
         var characterDelta = character.transform.position - transform.position;
 
-        var targetPosition = exitGateway.transform.position + characterDelta;
-        character.transform.position = targetPosition;
-        proCamera.MoveCameraInstantlyToPosition(targetPosition + cameraDelta);
+        character.transform.position = exitGateway.transform.position + characterDelta;
+        proCamera.MoveCameraInstantlyToPosition(character.transform.position + cameraDelta);
         lastUseTime = Time.time;
     }
 

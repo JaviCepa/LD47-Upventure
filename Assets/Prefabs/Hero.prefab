@@ -472,7 +472,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 304f7d0d312234340bbc19d4a285304a, type: 2}
+  - {fileID: 2100000, guid: 64d2cd1f84494614b863aa306d377a2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -793,13 +793,13 @@ MonoBehaviour:
   snapToGroundOnSlopesOnly: 1
   layerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 513
   geometryLayerMask:
     serializedVersion: 2
     m_Bits: 1
   passthroughLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   fallSpeedForIgnoreHeadCollisions: 0.2
   timeForFallState: 0.1
   terminalVelocity: -15
