@@ -4,7 +4,7 @@ Shader "Amazing Assets/Curved World/Sprites/Default"
 {
     Properties
     {
-        [HideInInspector][CurvedWorldBendSettings]	  _CurvedWorldBendSettings("0,7|1", Vector) = (0, 0, 0, 0)
+        [HideInInspector][CurvedWorldBendSettings]	  _CurvedWorldBendSettings("0,7,11|1", Vector) = (0, 0, 0, 0)
 
         [PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
         _Color ("Tint", Color) = (1,1,1,1)
@@ -45,7 +45,7 @@ Shader "Amazing Assets/Curved World/Sprites/Default"
             #pragma multi_compile _ ETC1_EXTERNAL_ALPHA
 
 
-#pragma shader_feature_local CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X
+#pragma shader_feature_local CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X CURVEDWORLD_BEND_TYPE_SPIRALHORIZONTAL_X_POSITIVE
 #define CURVEDWORLD_BEND_ID_1
 #pragma shader_feature_local CURVEDWORLD_DISABLED_ON
 #include "../../Core/CurvedWorldTransform.cginc" 
