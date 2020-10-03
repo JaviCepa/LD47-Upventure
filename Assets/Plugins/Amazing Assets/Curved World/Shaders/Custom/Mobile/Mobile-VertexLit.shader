@@ -10,7 +10,7 @@ Shader "Amazing Assets/Curved World/Mobile/VertexLit"
 {
     Properties 
     {
-        [HideInInspector][CurvedWorldBendSettings]	  _CurvedWorldBendSettings("0|1|1", Vector) = (0, 0, 0, 0)
+        [HideInInspector][CurvedWorldBendSettings]	  _CurvedWorldBendSettings("0,7|1|1", Vector) = (0, 0, 0, 0)
 
         _MainTex ("Base (RGB)", 2D) = "white" { }
     }
@@ -30,7 +30,7 @@ CGPROGRAM
 
 
 
-#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
+#pragma shader_feature_local CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X
 #define CURVEDWORLD_BEND_ID_1
 #pragma shader_feature_local CURVEDWORLD_DISABLED_ON
 #pragma shader_feature_local CURVEDWORLD_NORMAL_TRANSFORMATION_ON
@@ -208,7 +208,7 @@ CGPROGRAM
 
 
 
-#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
+#pragma shader_feature_local CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X
 #define CURVEDWORLD_BEND_ID_1
 #pragma shader_feature_local CURVEDWORLD_DISABLED_ON
 #include "../../Core/CurvedWorldTransform.cginc" 
@@ -311,7 +311,7 @@ CGPROGRAM
         #include "UnityCG.cginc"
 
 
-#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
+#pragma shader_feature_local CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X
 #define CURVEDWORLD_BEND_ID_1
 #pragma shader_feature_local CURVEDWORLD_DISABLED_ON
 #include "../../Core/CurvedWorldTransform.cginc" 
@@ -370,7 +370,7 @@ CGPROGRAM
             #pragma fragment fragScenePickingPass
 
 
-#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
+#pragma shader_feature_local CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X
 #define CURVEDWORLD_BEND_ID_1
 #pragma shader_feature_local CURVEDWORLD_DISABLED_ON
 
@@ -403,7 +403,7 @@ CGPROGRAM
             #pragma fragment fragSceneHighlightPass
 
 
-#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
+#pragma shader_feature_local CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X
 #define CURVEDWORLD_BEND_ID_1
 #pragma shader_feature_local CURVEDWORLD_DISABLED_ON
 

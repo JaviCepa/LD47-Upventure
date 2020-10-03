@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 64d2cd1f84494614b863aa306d377a2e, type: 2}
+  - {fileID: 2100000, guid: 86ace3bcce679304fbd27ed348176934, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enablePersistence: 0
-  guid: 57fb2916-c255-4288-a302-686c6b1637a4
+  guid: d3f383ec-b714-4256-8a75-9603ad79662c
   target: {fileID: 0}
   persistenceImplementation: 0
   defaultStateIsDisabled: 0
@@ -170,5 +170,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742c55a0dac48bb478e0409cea77dcee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copies: 20
+  copies: 10
   separation: 0.05

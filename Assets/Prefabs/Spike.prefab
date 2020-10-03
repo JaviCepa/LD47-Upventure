@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 64d2cd1f84494614b863aa306d377a2e, type: 2}
+  - {fileID: 2100000, guid: 86ace3bcce679304fbd27ed348176934, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742c55a0dac48bb478e0409cea77dcee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copies: 20
+  copies: 10
   separation: 0.05
 --- !u!60 &6974983465861406450
 PolygonCollider2D:

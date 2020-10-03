@@ -9,20 +9,36 @@ public class SpriteDepthFaker : MonoBehaviour
 
     SpriteRenderer spriteRenderer;
 
+    GameObject parentFaker;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
+        parentFaker = new GameObject($"SpriteFaker");
+        parentFaker.transform.SetParent(transform);
+
         for (int i = 0; i < copies; i++)
         {
             var newObject = new GameObject($"SpriteClone {i}");
-            newObject.transform.SetParent(transform);
+            newObject.transform.SetParent(parentFaker.transform);
             var spRenderer = newObject.AddComponent<SpriteRenderer>();
             spRenderer.sharedMaterial = spriteRenderer.sharedMaterial;
             spRenderer.sprite = spriteRenderer.sprite;
             spRenderer.sortingOrder = spriteRenderer.sortingOrder;
             newObject.transform.position = transform.position + Vector3.forward * i * separation;
         }
+        parentFaker.SetActive(false);
+    }
+
+    private void OnBecameVisible()
+    {
+        parentFaker.SetActive(true);
+    }
+
+    private void OnBecameInvisible()
+    {
+        parentFaker.SetActive(false);
     }
 
 }
