@@ -1,4 +1,5 @@
 using Com.LuisPedroFonseca.ProCamera2D;
+using PlatformerPro;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,7 +31,11 @@ public class CameraProgressionManager : MonoBehaviour
 
     void Start()
     {
-        
+        if (Application.isEditor)
+        {
+            var respawnPosition = FindObjectOfType<RespawnPoint>();
+            procamera.MoveCameraInstantlyToPosition(new Vector2(respawnPosition.transform.position.x, respawnPosition.transform.position.y));
+        }
     }
 
     void Update()

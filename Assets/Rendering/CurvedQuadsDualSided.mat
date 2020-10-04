@@ -8,17 +8,16 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CurvedQuadsDualSided
-  m_Shader: {fileID: 4800000, guid: 5eb56f5bd648eab4984f85fa800e1f3c, type: 3}
+  m_Shader: {fileID: 4800000, guid: e8a820dc9aec7d946a12eaea41e5bffb, type: 3}
   m_ShaderKeywords: CURVEDWORLD_BEND_ID_1 CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X
-    ETC1_EXTERNAL_ALPHA _ALPHATEST_ON
+    ETC1_EXTERNAL_ALPHA _ALPHATEST_ON _EMISSION
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2450
   stringTagMap:
-    RenderType: TransparentCutout
-  disabledShaderPasses:
-  - ALWAYS
+    RenderType: CurvedWorld_TransparentCutout
+  disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -59,6 +58,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -106,4 +109,5 @@ Material:
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
+    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []

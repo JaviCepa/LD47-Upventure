@@ -31,6 +31,10 @@ public class UpventureGameManager : MonoBehaviour
     public float introMinDuration = 10f;
     public static UpventureGameManager instance;
 
+    public List<Levels> DEBUG_Levels;
+
+    public List<RestoreOnPlayerDeath> restorables = new List<RestoreOnPlayerDeath>();
+
     public void ChangeLevel(Levels newLevel)
     {
         if (currentLevel != newLevel)
@@ -56,11 +60,24 @@ public class UpventureGameManager : MonoBehaviour
         character.InputEnabled = false;
         PlayIntro();
         var startLevel = GetLevelObject(Levels.Level1);
-        foreach (var level in levelObjects)
+        if (!Application.isEditor)
         {
-            if (level != startLevel)
+            foreach (var level in levelObjects)
             {
-                level.SetActive(false);
+                if (level != startLevel)
+                {
+                    level.SetActive(false);
+                }
+            }
+        }
+        else
+        {
+            foreach (Levels level in Enum.GetValues(typeof(Levels)))
+            {
+                if (!DEBUG_Levels.Contains(level))
+                {
+                    GetLevelObject(level).SetActive(false);
+                }
             }
         }
     }
@@ -109,5 +126,16 @@ public class UpventureGameManager : MonoBehaviour
         introMusic.Stop();
         themeMusic.Play();
         character.InputEnabled = true;
+    }
+
+    void OnHeroDeath()
+    {
+        foreach (var restorable in restorables)
+        {
+            if (restorable != null && restorable.gameObject.activeSelf)
+            {
+                restorable.OnPlayerDeath();
+            }
+        }
     }
 }

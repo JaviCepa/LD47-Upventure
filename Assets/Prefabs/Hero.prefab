@@ -900,6 +900,10 @@ MonoBehaviour:
     delay: 3
     supportingData: 
     supportingGameObject: {fileID: 0}
+  - actionType: 8
+    delay: 3
+    supportingData: ResetCamera
+    supportingGameObject: {fileID: 0}
   skipDamageAnimationOnDeath: 1
   skipDeathActionsOnGameOver: 0
   sendEventsOnZeroDamage: 0

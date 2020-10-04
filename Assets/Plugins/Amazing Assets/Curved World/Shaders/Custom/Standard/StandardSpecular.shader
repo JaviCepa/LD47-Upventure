@@ -2,7 +2,7 @@ Shader "Amazing Assets/Curved World/Standard (Specular setup)"
 {
     Properties
     {
-[HideInInspector][CurvedWorldBendSettings]	  _CurvedWorldBendSettings("0|1|1", Vector) = (0, 0, 0, 0)
+[HideInInspector][CurvedWorldBendSettings]	  _CurvedWorldBendSettings("0,7|1|1", Vector) = (0, 0, 0, 0)
 
 
 [HideInInspector][MaterialEnum(Front,2,Back,1,Both,0)] _Cull("Face Cull", Int) = 0
@@ -93,7 +93,7 @@ Shader "Amazing Assets/Curved World/Standard (Specular setup)"
 
 
 
-#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
+#pragma shader_feature_local CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X
 #define CURVEDWORLD_BEND_ID_1
 #pragma shader_feature_local CURVEDWORLD_DISABLED_ON
 #pragma shader_feature_local CURVEDWORLD_NORMAL_TRANSFORMATION_ON
@@ -137,7 +137,7 @@ Shader "Amazing Assets/Curved World/Standard (Specular setup)"
 
 
 
-#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
+#pragma shader_feature_local CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X
 #define CURVEDWORLD_BEND_ID_1
 #pragma shader_feature_local CURVEDWORLD_DISABLED_ON
 #pragma shader_feature_local CURVEDWORLD_NORMAL_TRANSFORMATION_ON
@@ -175,7 +175,7 @@ Shader "Amazing Assets/Curved World/Standard (Specular setup)"
 
 
 
-#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
+#pragma shader_feature_local CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X
 #define CURVEDWORLD_BEND_ID_1
 #pragma shader_feature_local CURVEDWORLD_DISABLED_ON
 #pragma shader_feature_local CURVEDWORLD_NORMAL_TRANSFORMATION_ON
@@ -219,7 +219,7 @@ Shader "Amazing Assets/Curved World/Standard (Specular setup)"
 
 
 
-#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
+#pragma shader_feature_local CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X
 #define CURVEDWORLD_BEND_ID_1
 #pragma shader_feature_local CURVEDWORLD_DISABLED_ON
 #pragma shader_feature_local CURVEDWORLD_NORMAL_TRANSFORMATION_ON
@@ -285,7 +285,7 @@ Shader "Amazing Assets/Curved World/Standard (Specular setup)"
             #pragma fragment fragScenePickingPass
 
 
-#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
+#pragma shader_feature_local CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X
 #define CURVEDWORLD_BEND_ID_1
 #pragma shader_feature_local CURVEDWORLD_DISABLED_ON
 
@@ -320,7 +320,7 @@ Shader "Amazing Assets/Curved World/Standard (Specular setup)"
             #pragma fragment fragSceneHighlightPass
 
 
-#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
+#pragma shader_feature_local CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X
 #define CURVEDWORLD_BEND_ID_1
 #pragma shader_feature_local CURVEDWORLD_DISABLED_ON
 
@@ -366,7 +366,7 @@ Shader "Amazing Assets/Curved World/Standard (Specular setup)"
 
 
 
-#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
+#pragma shader_feature_local CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X
 #define CURVEDWORLD_BEND_ID_1
 #pragma shader_feature_local CURVEDWORLD_DISABLED_ON
 #pragma shader_feature_local CURVEDWORLD_NORMAL_TRANSFORMATION_ON
@@ -407,7 +407,7 @@ Shader "Amazing Assets/Curved World/Standard (Specular setup)"
 
 
 
-#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
+#pragma shader_feature_local CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X
 #define CURVEDWORLD_BEND_ID_1
 #pragma shader_feature_local CURVEDWORLD_DISABLED_ON
 #pragma shader_feature_local CURVEDWORLD_NORMAL_TRANSFORMATION_ON
@@ -439,7 +439,7 @@ Shader "Amazing Assets/Curved World/Standard (Specular setup)"
 
 
 
-#define CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE
+#pragma shader_feature_local CURVEDWORLD_BEND_TYPE_CLASSICRUNNER_X_POSITIVE CURVEDWORLD_BEND_TYPE_CYLINDRICALTOWER_X
 #define CURVEDWORLD_BEND_ID_1
 #pragma shader_feature_local CURVEDWORLD_DISABLED_ON
 #pragma shader_feature_local CURVEDWORLD_NORMAL_TRANSFORMATION_ON

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2417556908032046608}
   - component: {fileID: 2417556908032046604}
   - component: {fileID: 2417556908032046603}
+  - component: {fileID: 8204534536122707125}
   m_Layer: 0
   m_Name: FakeFloor
   m_TagString: Untagged
@@ -125,14 +126,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enablePersistence: 0
-  guid: d3f383ec-b714-4256-8a75-9603ad79662c
+  guid: c11593c9-7e61-45f5-928a-2e5f7cea5b59
   target: {fileID: 0}
   persistenceImplementation: 0
   defaultStateIsDisabled: 0
   spawnedObjectName: 
   friction: -1
   automaticActivation: 2
-  automaticDeactivation: 0
+  automaticDeactivation: 1
   conditionsEnableCollisions: 1
   useDefaultPersistence: 0
   fallDelay: 0.3
@@ -172,3 +173,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   copies: 10
   separation: 0.05
+--- !u!114 &8204534536122707125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2417556908032046609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e12750e36ee30479cc596708759ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2417556908032046609, guid: d4031cba57e76d244a44403c6f53f747, type: 3}

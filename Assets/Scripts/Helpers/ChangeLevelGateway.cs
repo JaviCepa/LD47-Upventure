@@ -22,26 +22,5 @@ public class ChangeLevelGateway : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    var character = collision.gameObject.GetComponentInParent<Character>();
-    //    if (character != null && Time.time - lastUseTime > cooldown)
-    //    {
-    //        TeleportToOther(character);
-    //    }
-    //}
-
-    //void TeleportToOther(Character character)
-    //{
-    //    var proCamera = Camera.main.GetComponent<ProCamera2D>();
-
-    //    var cameraDelta = proCamera.transform.position - character.transform.position;
-    //    var characterDelta = character.transform.position - transform.position;
-
-    //    character.transform.position = exitGateway.transform.position + characterDelta;
-    //    proCamera.MoveCameraInstantlyToPosition(character.transform.position + cameraDelta);
-    //    lastUseTime = Time.time;
-    //}
-
 
 }
