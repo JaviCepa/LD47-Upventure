@@ -1,4 +1,5 @@
 using Com.LuisPedroFonseca.ProCamera2D;
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,8 +20,13 @@ public class CameraProgressionManager : MonoBehaviour
     public float startOffsetY = -0.5f;
     public float endOffsetY = 0.5f;
 
+    public float startOffsetX = 0.25f;
+    public float endOffsetX = 0.0f;
+
     public Camera cam;
     public ProCamera2D procamera;
+
+    float timeSinceStart => UpventureGameManager.instance.timeSinceStart;
 
     void Start()
     {
@@ -33,5 +39,28 @@ public class CameraProgressionManager : MonoBehaviour
         transform.localEulerAngles = new Vector3(Mathf.Lerp(startRotation, endRotation, normalizedHeight), transform.localEulerAngles.y, transform.localEulerAngles.z);
         cam.fieldOfView = Mathf.Lerp(startFieldOfView, endFieldOfView, normalizedHeight);
         procamera.OffsetY = Mathf.Lerp(startOffsetY, endOffsetY, normalizedHeight);
+        if (Application.isPlaying)
+        {
+            procamera.OffsetX = Mathf.Lerp(startOffsetX, endOffsetX,  Mathf.Clamp01(timeSinceStart/10f));
+        }
+        else
+        {
+            procamera.OffsetX = startOffsetX;
+        }
     }
+
+    Vector3 startPosition;
+
+    [Button]
+    void SaveStartPosition()
+    {
+        startPosition = transform.position;
+    }
+
+    [Button]
+    void GoToStartPosition()
+    {
+        transform.position = startPosition;
+    }
+
 }

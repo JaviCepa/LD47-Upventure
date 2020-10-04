@@ -25,7 +25,13 @@ public class UpventureGameManager : MonoBehaviour
     public GameState gameState;
     public Levels currentLevel = Levels.Level1;
 
-    internal void ChangeLevel(Levels newLevel)
+    public float timeSinceStart => Time.time - startTime;
+    float startTime = 0;
+
+    public float introMinDuration = 10f;
+    public static UpventureGameManager instance;
+
+    public void ChangeLevel(Levels newLevel)
     {
         if (currentLevel != newLevel)
         {
@@ -43,10 +49,9 @@ public class UpventureGameManager : MonoBehaviour
         return levelObjects[(int)level];
     }
 
-    public float introMinDuration = 10f;
-
     void Awake()
     {
+        instance = this;
         gameState = GameState.Intro;
         character.InputEnabled = false;
         PlayIntro();
@@ -66,6 +71,7 @@ public class UpventureGameManager : MonoBehaviour
         switch (gameState)
         {
             case GameState.Intro:
+                startTime = Time.time;
                 if (time > introMinDuration || Application.isEditor)
                 {
                     gameState = GameState.PressAnyKey;
@@ -73,6 +79,7 @@ public class UpventureGameManager : MonoBehaviour
                 }
                 break;
             case GameState.PressAnyKey:
+                startTime = Time.time;
                 if (UnityEngine.Input.anyKeyDown)
                 {
                     StartGame();
