@@ -31,7 +31,6 @@ public class UpventureGameManager : MonoBehaviour
     public float timeSinceStart => Time.time - startTime;
     float startTime = 0;
 
-    public float introMinDuration = 10f;
     public static UpventureGameManager instance;
 
     public List<Levels> DEBUG_Levels;
@@ -42,15 +41,17 @@ public class UpventureGameManager : MonoBehaviour
 
     public DarkLord darkLord;
 
+    float introMinDuration = 6f;
+
     void Awake()
     {
         Fader.instance.HideInstantly();
-        Fader.instance.ShowScreen();
+
+        InitGame();
 
         instance = this;
         gameState = GameState.Intro;
         character.InputEnabled = false;
-        PlayIntro();
         var startLevel = GetLevelObject(Levels.Level1);
         if (!Application.isEditor)
         {
@@ -78,7 +79,27 @@ public class UpventureGameManager : MonoBehaviour
                     }
                 }
             }
+            else
+            {
+                foreach (var level in levelObjects)
+                {
+                    if (level != startLevel)
+                    {
+                        level.SetActive(false);
+                    }
+                }
+            }
         }
+    }
+
+    private void InitGame()
+    {
+        proCamera.GetComponent<AudioListener>().enabled = false;
+        var sequence = DOTween.Sequence();
+        sequence.AppendInterval(1f);
+        sequence.AppendCallback(() => Fader.instance.ShowScreen());
+        sequence.AppendCallback(() => proCamera.GetComponent<AudioListener>().enabled = true);
+        sequence.AppendCallback(() => introMusic.Play());
     }
 
     public void PlayEnding()
@@ -95,6 +116,7 @@ public class UpventureGameManager : MonoBehaviour
             sequence.AppendCallback(() => Fader.instance.HideScreen());
             sequence.AppendInterval(0.5f);
             sequence.AppendCallback(() => {
+                spawnPoint.transform.position = character.transform.position + Vector3.up;
                 var previousLevel = currentLevel;
                 currentLevel = newLevel;
                 var previous = GetLevelObject(previousLevel);
@@ -155,11 +177,6 @@ public class UpventureGameManager : MonoBehaviour
         //Show "press any key" text
     }
 
-    private void PlayIntro()
-    {
-        introMusic.Play();
-    }
-
     void StartGame()
     {
         gameState = GameState.Gameplay;
@@ -170,14 +187,27 @@ public class UpventureGameManager : MonoBehaviour
 
     void OnHeroDeath()
     {
-        foreach (var restorable in restorables)
-        {
-            if (restorable != null && restorable.gameObject.activeSelf)
-            {
-                restorable.OnPlayerDeath();
-            }
-        }
 
-        darkLord.OnCharacterDeath();
+        var sequence = DOTween.Sequence();
+
+        sequence.AppendCallback(() => Fader.instance.HideScreen());
+        sequence.AppendInterval(0.5f);
+        sequence.AppendCallback(() =>
+        {
+            foreach (var restorable in restorables)
+            {
+                if (restorable != null && restorable.gameObject.activeSelf)
+                {
+                    restorable.OnPlayerDeath();
+                }
+            }
+
+            darkLord.OnCharacterDeath();
+
+            Vector2 spawnPosition = new Vector2(spawnPoint.transform.position.x, spawnPoint.transform.position.y);
+            proCamera.MoveCameraInstantlyToPosition(spawnPosition);
+        });
+        sequence.AppendInterval(1f);
+        sequence.AppendCallback(() => Fader.instance.ShowScreen());
     }
 }

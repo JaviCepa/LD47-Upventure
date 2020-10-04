@@ -25,8 +25,11 @@ public class DarkLord : MonoBehaviour
 
     GameObject currentSpell;
 
+    AudioSource rumbleAudio;
+
     void Start()
     {
+        rumbleAudio = GetComponent<AudioSource>();
         currentState = DarkState.Waiting;
         cam = FindObjectOfType<Camera>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -38,7 +41,7 @@ public class DarkLord : MonoBehaviour
         switch (currentState)
         {
             case DarkState.Waiting:
-                if (UpventureGameManager.instance.character.transform.position.y > 165f && UpventureGameManager.instance.character.CharacterHealth.CurrentHealth > 0)
+                if (UpventureGameManager.instance.character != null && UpventureGameManager.instance.character.transform.position.y > 165f && UpventureGameManager.instance.character.CharacterHealth.CurrentHealth > 0)
                 {
                     currentState = DarkState.Idle;
                 }
@@ -100,6 +103,8 @@ public class DarkLord : MonoBehaviour
         sequence.Append(transform.DOMoveY(-6f, 0.5f).SetEase(Ease.InExpo).SetRelative(true));
         sequence.AppendCallback(() => spriteRenderer.sprite = attackSprite);
         sequence.AppendCallback(() => UpventureGameManager.instance.ShakeScreen(1));
+        sequence.AppendCallback(() => rumbleAudio.Play());
+            
         sequence.AppendCallback(() => currentState = DarkState.Idle);
         sequence.AppendCallback(
             () => {
