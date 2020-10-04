@@ -15,7 +15,11 @@ public class EndingManager : MonoBehaviour
 
     void Start()
     {
+        Fader.instance.HideInstantly();
         var sequence = DOTween.Sequence();
+        sequence.AppendInterval(1f);
+        sequence.AppendCallback(() => Fader.instance.ShowScreen());
+        sequence.AppendInterval(2f);
         sequence.AppendCallback( () => heroAnimation.DOPlay());
         sequence.AppendInterval(4f);
         sequence.AppendCallback(() => princessAnimation.DOPlay());
@@ -29,7 +33,11 @@ public class EndingManager : MonoBehaviour
     {
         if (replayAvailable && Input.anyKeyDown)
         {
-            SceneManager.LoadScene(0);
+            replayAvailable = false;
+            var sequence = DOTween.Sequence();
+            sequence.AppendCallback(() => Fader.instance.HideScreen());
+            sequence.AppendInterval(2f);
+            sequence.AppendCallback(() => SceneManager.LoadScene(0));
         }
     }
 }
