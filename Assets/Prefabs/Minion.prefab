@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enablePersistence: 0
-  guid: 6c0487c8-148b-4b2b-ad68-a78d9829d650
+  guid: 24125205-9764-4ff0-8b64-a204e5366ad4
   target: {fileID: 0}
   persistenceImplementation: 0
   defaultStateIsDisabled: 0
@@ -385,6 +385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2386834250932557918}
   - component: {fileID: 2386834250932557919}
+  - component: {fileID: 7742592165331011019}
   m_Layer: 11
   m_Name: Movements
   m_TagString: Untagged
@@ -424,3 +425,15 @@ MonoBehaviour:
   bounceOnHit: 0
   walkOffEdges: 1
   animationState: 100
+--- !u!114 &7742592165331011019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2386834250932557889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c66b1b3e268e642ba1cfe412187830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
