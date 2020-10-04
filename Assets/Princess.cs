@@ -24,7 +24,8 @@ public class Princess : MonoBehaviour
             sequence.Append(character.transform.DOMoveY(3f, 1f).SetRelative(true).SetEase(Ease.OutQuad).OnStart(() => character.transform.DOMoveZ(-5f, 4f).SetRelative(true).SetEase(Ease.Linear)));
             sequence.Append(character.transform.DOMoveY(-3f, 1f).SetRelative(true).SetEase(Ease.InQuad));
             sequence.AppendInterval(1f);
-            //Fade out
+            sequence.AppendCallback(() => Fader.instance.HideScreen());
+            sequence.AppendInterval(1f);
             sequence.AppendCallback(() => UpventureGameManager.instance.PlayEnding());
         }
     }

@@ -44,6 +44,9 @@ public class UpventureGameManager : MonoBehaviour
 
     void Awake()
     {
+        Fader.instance.HideInstantly();
+        Fader.instance.ShowScreen();
+
         instance = this;
         gameState = GameState.Intro;
         character.InputEnabled = false;
@@ -87,12 +90,20 @@ public class UpventureGameManager : MonoBehaviour
     {
         if (currentLevel != newLevel)
         {
-            var previousLevel = currentLevel;
-            currentLevel = newLevel;
-            var previous = GetLevelObject(previousLevel);
-            var current = GetLevelObject(currentLevel);
-            current.SetActive(true);
-            previous.SetActive(false);
+            var sequence = DOTween.Sequence();
+
+            sequence.AppendCallback(() => Fader.instance.HideScreen());
+            sequence.AppendInterval(0.5f);
+            sequence.AppendCallback(() => {
+                var previousLevel = currentLevel;
+                currentLevel = newLevel;
+                var previous = GetLevelObject(previousLevel);
+                var current = GetLevelObject(currentLevel);
+                current.SetActive(true);
+                previous.SetActive(false);
+            });
+            sequence.AppendInterval(1.0f);
+            sequence.AppendCallback(() => Fader.instance.ShowScreen());
         }
     }
 
