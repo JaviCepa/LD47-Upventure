@@ -16,7 +16,7 @@ public class UpventureGameManager : MonoBehaviour
     public AudioSource themeMusic;
 
     public Character character;
-
+    public GameObject spawnPoint;
     public List<GameObject> levelObjects;
 
     [ReadOnly]
@@ -33,6 +33,7 @@ public class UpventureGameManager : MonoBehaviour
 
     public List<Levels> DEBUG_Levels;
 
+    [HideInInspector]
     public List<RestoreOnPlayerDeath> restorables = new List<RestoreOnPlayerDeath>();
 
     public void ChangeLevel(Levels newLevel)

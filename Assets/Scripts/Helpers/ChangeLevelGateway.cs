@@ -18,8 +18,9 @@ public class ChangeLevelGateway : MonoBehaviour
         var character = collision.gameObject.GetComponentInParent<Character>();
         if (character != null && Time.time - lastUseTime > cooldown)
         {
-            FindObjectOfType<UpventureGameManager>().ChangeLevel(newLevel);
+            UpventureGameManager.instance.ChangeLevel(newLevel);
         }
+        UpventureGameManager.instance.spawnPoint.transform.position = transform.position;
     }
 
 

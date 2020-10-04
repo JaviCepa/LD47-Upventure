@@ -54,18 +54,4 @@ public class CameraProgressionManager : MonoBehaviour
         }
     }
 
-    Vector3 startPosition;
-
-    [Button]
-    void SaveStartPosition()
-    {
-        startPosition = transform.position;
-    }
-
-    [Button]
-    void GoToStartPosition()
-    {
-        transform.position = startPosition;
-    }
-
 }
