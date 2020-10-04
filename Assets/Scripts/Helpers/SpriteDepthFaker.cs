@@ -28,6 +28,7 @@ public class SpriteDepthFaker : MonoBehaviour
             spRenderer.color = spriteRenderer.color;
             spRenderer.sortingOrder = spriteRenderer.sortingOrder;
             newObject.transform.position = transform.position + Vector3.forward * i * separation;
+            newObject.transform.localScale = transform.localScale;
         }
         parentFaker.SetActive(false);
     }

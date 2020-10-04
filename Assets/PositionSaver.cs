@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PositionSaver : MonoBehaviour
 {
-    Vector3 startPosition;
+    public Vector3 startPosition;
 
     [Button]
     void SaveStartPosition()
