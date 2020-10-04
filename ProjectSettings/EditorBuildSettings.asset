@@ -6,69 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/PlatformerPro/Samples/SampleMenu-GameSelect.unity
-    guid: be3549c372d6944a38c504e44855f56b
+    path: Assets/Scenes/Gameplay.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/PlatformerPro/Samples/AlienSample/SampleScene-Alien-LevelSelect.unity
-    guid: 1bc5844761c184053bd5ce61c72cda54
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/AlienSample/SampleScene-Alien-Level1.1.unity
-    guid: a2dc81541c3954251a6ac293fb1d32a8
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/AlienSample/SampleScene-Alien-Level1.2.unity
-    guid: 756deb7363ea3584c89c0988e0ed2e29
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/AlienSample/SampleScene-Alien-Level1.3.unity
-    guid: 56dfc19a6f4a7431a933cb0a88a30b9d
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/AlienSample/SampleScene-Alien-Level1.4.unity
-    guid: 12dbb1e3619d54c829f4e2a2b8188ab5
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/AlienSample/SampleScene-Alien-Shop.unity
-    guid: 2768eb0d6f96c485e9372b0924f17810
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/OlderSamples/PixtroidSample/SampleMenu-Pixtroid.unity
-    guid: 096f52a88cdd54001b8b3dc1ce872f16
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/OlderSamples/ComandBroSample/SampleMenu-CommandBro.unity
-    guid: 9be5f54b1e54545368753225c4b5736d
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/OlderSamples/PixtroidSample/SampleScene-Pixtroid.unity
-    guid: 80c1b11f6c2414d4896f2462e8fc2a45
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/OlderSamples/ComandBroSample/SampleScene-CommandBro.unity
-    guid: 1ddcb83c946684d9eb2de7ba986f44a9
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/OlderSamples/SmallerSamples/LoopyHamster/SampleScene-LoopyHamster.unity
-    guid: ca35813e196754fbdaf8fa0a04c7ec73
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/OlderSamples/Hero25DSample/SampleScene-Hero25D.unity
-    guid: 0c8bac6578cbb4beba171a90a6a41731
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/OlderSamples/BeatEmUpSample/SampleScene-IceBeatEmUp.unity
-    guid: ae70d8217eaad41f4a0f779a17c3daaf
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/OlderSamples/BionicCopSample/SampleScene-BionicCop.unity
-    guid: 039679ef7c36f478484a31db4b7c4b1c
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/OlderSamples/SmallerSamples/PlatformHowToSample/PlatformSamples-Movers.unity
-    guid: 6e4864b38f91645fbbef28e31550e21b
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/OlderSamples/SmallerSamples/PlatformHowToSample/PlatformSamples-MoreMovers.unity
-    guid: 31bfff02fc37a4ec29b7ceb5dd119fcb
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/OlderSamples/SmallerSamples/PlatformHowToSample/PlatformSamples-Hazards.unity
-    guid: 253a21fbb9f1b406ab06dcbbced2b5cb
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/OlderSamples/SmallerSamples/PlatformHowToSample/PlatformSamples-Items.unity
-    guid: eab1f2c3118d94c76bb22f1b21541262
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/OlderSamples/SmallerSamples/PlatformHowToSample/PlatformSamples-Puzzles1.unity
-    guid: f12e053d64d274666ac666adcf5220d9
-  - enabled: 1
-    path: Assets/PlatformerPro/Samples/OlderSamples/SmallerSamples/PlatformHowToSample/PlatformSamples-Puzzles2.unity
-    guid: 3c789d44566bb4abb872e56526604210
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+    path: Assets/Scenes/Ending.unity
+    guid: 86a459be343353343900efbb2e029cbb
   m_configObjects: {}

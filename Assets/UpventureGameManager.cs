@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState { Loading, Intro, PressAnyKey, Gameplay }
 
@@ -79,7 +80,7 @@ public class UpventureGameManager : MonoBehaviour
 
     public void PlayEnding()
     {
-        Debug.Log("You win!");
+        SceneManager.LoadScene(1);
     }
 
     public void ChangeLevel(Levels newLevel)
