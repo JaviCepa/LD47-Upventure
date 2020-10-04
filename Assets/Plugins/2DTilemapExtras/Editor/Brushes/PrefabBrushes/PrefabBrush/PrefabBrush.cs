@@ -44,6 +44,8 @@ namespace UnityEditor.Tilemaps
         /// <param name="position">The coordinates of the cell to paint data to.</param>
         public override void Paint(GridLayout grid, GameObject brushTarget, Vector3Int position)
         {
+            position += new Vector3Int((int)brushTarget.transform.position.x, (int)brushTarget.transform.position.y, 0);
+            Debug.Log("Pintar");
             var objectsInCell = GetObjectsInCell(grid, brushTarget.transform, position);
             var existPrefabObjectInCell = objectsInCell.Any(objectInCell => PrefabUtility.GetCorrespondingObjectFromSource(objectInCell) == m_Prefab);
 
