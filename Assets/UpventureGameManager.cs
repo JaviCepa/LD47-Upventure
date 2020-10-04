@@ -45,7 +45,7 @@ public class UpventureGameManager : MonoBehaviour
 
     public float introMinDuration = 10f;
 
-    void Start()
+    void Awake()
     {
         gameState = GameState.Intro;
         character.InputEnabled = false;

@@ -812,8 +812,14 @@ namespace PlatformerPro
                     if (deathMovement == null) deathMovement = d;
                 }
 			}
-			if (deathMovement != null) deathMovement = deathMovement.Init (this);
-			else Debug.LogWarning ("Enemies should have a death movement attached. Use EnemyMovement_Damage_PlayAnimationOnly if unsure.");
+			if (deathMovement != null)
+			{
+				deathMovement = deathMovement.Init(this);
+			}
+			else
+			{
+				//Debug.LogWarning("Enemies should have a death movement attached. Use EnemyMovement_Damage_PlayAnimationOnly if unsure.");
+			}
 			// Init Damage Movement
 			if (damageMovement != null && damageMovement != deathMovement)
 			{

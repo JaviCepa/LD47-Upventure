@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enablePersistence: 0
-  guid: 24125205-9764-4ff0-8b64-a204e5366ad4
+  guid: b990ae70-79e4-4c85-8039-715bbcc56eb6
   target: {fileID: 0}
   persistenceImplementation: 0
   defaultStateIsDisabled: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   continueMovementOnFall: 0
   switchCollidersOnDirectionChange: 0
   startFacingDirection: -1
-  enemyInteractsWithPlatforms: 1
+  enemyInteractsWithPlatforms: 0
   geometryLayerMask:
     serializedVersion: 2
     m_Bits: 1
