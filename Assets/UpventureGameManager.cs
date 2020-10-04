@@ -7,7 +7,7 @@ using UnityEngine;
 
 public enum GameState { Loading, Intro, PressAnyKey, Gameplay }
 
-public enum Levels { Level1, Level2, Level3, Level4, Level5 }
+public enum Levels { Level1, Level2, Level3, Level4, Level5, Final }
 
 public class UpventureGameManager : MonoBehaviour
 {
