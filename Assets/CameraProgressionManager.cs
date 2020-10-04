@@ -34,7 +34,10 @@ public class CameraProgressionManager : MonoBehaviour
         if (Application.isEditor)
         {
             var respawnPosition = FindObjectOfType<RespawnPoint>();
-            procamera.MoveCameraInstantlyToPosition(new Vector2(respawnPosition.transform.position.x, respawnPosition.transform.position.y));
+            if (procamera != null && respawnPosition != null)
+            {
+                procamera.MoveCameraInstantlyToPosition(new Vector2(respawnPosition.transform.position.x, respawnPosition.transform.position.y));
+            }
         }
     }
 

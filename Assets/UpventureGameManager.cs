@@ -1,3 +1,4 @@
+using Com.LuisPedroFonseca.ProCamera2D;
 using PlatformerPro;
 using Sirenix.OdinInspector;
 using System;
@@ -35,6 +36,7 @@ public class UpventureGameManager : MonoBehaviour
 
     [HideInInspector]
     public List<RestoreOnPlayerDeath> restorables = new List<RestoreOnPlayerDeath>();
+    public ProCamera2D proCamera;
 
     public void ChangeLevel(Levels newLevel)
     {
@@ -81,6 +83,11 @@ public class UpventureGameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    internal void ShakeScreen(int preset)
+    {
+        proCamera.GetComponent<ProCamera2DShake>().Shake(preset);
     }
 
     void Update()
