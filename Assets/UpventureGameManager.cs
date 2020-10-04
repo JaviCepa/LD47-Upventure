@@ -60,11 +60,18 @@ public class UpventureGameManager : MonoBehaviour
         }
         else
         {
-            foreach (Levels level in Enum.GetValues(typeof(Levels)))
+            if (DEBUG_Levels != null && DEBUG_Levels.Count > 0)
             {
-                if (!DEBUG_Levels.Contains(level))
+                foreach (Levels level in Enum.GetValues(typeof(Levels)))
                 {
-                    GetLevelObject(level).SetActive(false);
+                    if (!DEBUG_Levels.Contains(level))
+                    {
+                        var obj = GetLevelObject(level);
+                        if (obj != null)
+                        {
+                            obj.SetActive(false);
+                        }
+                    }
                 }
             }
         }
@@ -90,6 +97,11 @@ public class UpventureGameManager : MonoBehaviour
 
     GameObject GetLevelObject(Levels level)
     {
+        if ((int)level >= levelObjects.Count)
+        {
+            return null;
+        }
+
         return levelObjects[(int)level];
     }
 

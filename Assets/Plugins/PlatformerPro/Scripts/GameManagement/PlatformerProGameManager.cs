@@ -336,7 +336,7 @@ namespace PlatformerPro
                     a.characterInScene = c;
                     Debug.LogWarning("You should define your character in the GameManager settings. Currently using first result returned by FindObjectOfType<Character>()");
                 } else { 
-                    Debug.LogError ("CRITICAL: Game Manager must define at least one character!");
+                    //Debug.LogError ("CRITICAL: Game Manager must define at least one character!");
                 }
                 return;
 			}
