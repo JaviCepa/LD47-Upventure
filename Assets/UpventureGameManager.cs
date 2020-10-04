@@ -141,7 +141,7 @@ public class UpventureGameManager : MonoBehaviour
 
     internal void ShakeScreen(int preset)
     {
-        proCamera.GetComponent<ProCamera2DShake>().Shake(preset);
+        //proCamera.GetComponent<ProCamera2DShake>().Shake(preset);
     }
 
     void Update()
