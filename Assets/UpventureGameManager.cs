@@ -1,4 +1,5 @@
 using Com.LuisPedroFonseca.ProCamera2D;
+using DG.Tweening;
 using PlatformerPro;
 using Sirenix.OdinInspector;
 using System;
@@ -67,6 +68,11 @@ public class UpventureGameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void PlayEnding()
+    {
+        Debug.Log("You win!");
     }
 
     public void ChangeLevel(Levels newLevel)
