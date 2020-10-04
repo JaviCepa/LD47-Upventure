@@ -38,23 +38,7 @@ public class UpventureGameManager : MonoBehaviour
     public List<RestoreOnPlayerDeath> restorables = new List<RestoreOnPlayerDeath>();
     public ProCamera2D proCamera;
 
-    public void ChangeLevel(Levels newLevel)
-    {
-        if (currentLevel != newLevel)
-        {
-            var previousLevel = currentLevel;
-            currentLevel = newLevel;
-            var previous = GetLevelObject(previousLevel);
-            var current = GetLevelObject(currentLevel);
-            current.SetActive(true);
-            previous.SetActive(false);
-        }
-    }
-
-    GameObject GetLevelObject(Levels level)
-    {
-        return levelObjects[(int)level];
-    }
+    public DarkLord darkLord;
 
     void Awake()
     {
@@ -83,6 +67,24 @@ public class UpventureGameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ChangeLevel(Levels newLevel)
+    {
+        if (currentLevel != newLevel)
+        {
+            var previousLevel = currentLevel;
+            currentLevel = newLevel;
+            var previous = GetLevelObject(previousLevel);
+            var current = GetLevelObject(currentLevel);
+            current.SetActive(true);
+            previous.SetActive(false);
+        }
+    }
+
+    GameObject GetLevelObject(Levels level)
+    {
+        return levelObjects[(int)level];
     }
 
     internal void ShakeScreen(int preset)
@@ -145,5 +147,7 @@ public class UpventureGameManager : MonoBehaviour
                 restorable.OnPlayerDeath();
             }
         }
+
+        darkLord.OnCharacterDeath();
     }
 }

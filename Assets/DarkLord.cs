@@ -18,6 +18,7 @@ public class DarkLord : MonoBehaviour
 
     SpriteRenderer spriteRenderer;
 
+    public GameObject explosionPrefab;
     public GameObject spellPrefab;
 
     public Vector3 spellSpawnDelta;
@@ -37,7 +38,7 @@ public class DarkLord : MonoBehaviour
         switch (currentState)
         {
             case DarkState.Waiting:
-                if (UpventureGameManager.instance.character.transform.position.y > 165f)
+                if (UpventureGameManager.instance.character.transform.position.y > 165f && UpventureGameManager.instance.character.CharacterHealth.CurrentHealth > 0)
                 {
                     currentState = DarkState.Idle;
                 }
@@ -74,15 +75,20 @@ public class DarkLord : MonoBehaviour
 
     private void Attack()
     {
+        currentSpell.transform.position = transform.position + spellSpawnDelta;
         spriteRenderer.sprite = attackSprite;
-        var launchedSpell = currentSpell;
-        var sequence = DOTween.Sequence();
-        sequence.Append(currentSpell.transform.DOLocalJump(UpventureGameManager.instance.character.transform.position, deathBallFlyHeight, 1, 3f).SetEase(Ease.Linear));
-        sequence.AppendCallback(() => UpventureGameManager.instance.ShakeScreen(0));
-        sequence.AppendCallback(() => currentSpell = null);
-        sequence.AppendCallback(() => Destroy(launchedSpell));
-        //Spawn explosion
-        currentState = DarkState.Idle;
+        if (currentSpell != null)
+        {
+            var launchedSpell = currentSpell;
+            var sequence = DOTween.Sequence();
+            sequence.Append(currentSpell.transform.DOLocalJump(UpventureGameManager.instance.character.transform.position, deathBallFlyHeight, 1, 1.5f).SetEase(Ease.Linear));
+            sequence.AppendCallback(() => UpventureGameManager.instance.ShakeScreen(0));
+            sequence.AppendCallback(() => Destroy(launchedSpell));
+            sequence.AppendCallback(() => Instantiate(explosionPrefab, launchedSpell.transform.position, Quaternion.identity));
+            sequence.AppendCallback(() => currentState = DarkState.Idle);
+            currentSpell = null;
+        }
+        currentState = DarkState.DoNothing;
     }
 
     private void Stomp()
@@ -95,6 +101,20 @@ public class DarkLord : MonoBehaviour
         sequence.AppendCallback(() => spriteRenderer.sprite = attackSprite);
         sequence.AppendCallback(() => UpventureGameManager.instance.ShakeScreen(1));
         sequence.AppendCallback(() => currentState = DarkState.Idle);
+        sequence.AppendCallback(
+            () => {
+                if (UpventureGameManager.instance.character.Grounded)
+                {
+                    UpventureGameManager.instance.character.InputEnabled = false;
+                }
+            }
+        );
+        sequence.AppendInterval(3f);
+        sequence.AppendCallback(
+            () => {
+                UpventureGameManager.instance.character.InputEnabled = true;
+            }
+        );
         //Disable player input for a while if its grounded
     }
 
@@ -111,6 +131,11 @@ public class DarkLord : MonoBehaviour
             case 1: currentState = DarkState.Stomp; break;
             default: currentState = DarkState.Idle; break;
         }
+    }
+
+    public void OnCharacterDeath()
+    {
+        currentState = DarkState.Waiting;
     }
 
 }
