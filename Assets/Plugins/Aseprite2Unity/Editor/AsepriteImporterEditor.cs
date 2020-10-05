@@ -11,7 +11,7 @@ namespace Aseprite2Unity.Editor
 {
     [CustomEditor(typeof(AsepriteImporter))]
     [CanEditMultipleObjects]
-    public class AsepriteImporterEditor : UnityEditor.AssetImporters.ScriptedImporterEditor
+    public class AsepriteImporterEditor : UnityEditor.Experimental.AssetImporters.ScriptedImporterEditor
     {
         private readonly string[] m_AnimatorCullingModeNames = EnumExtensions.GetUpToDateEnumNames<AnimatorCullingMode>();
 

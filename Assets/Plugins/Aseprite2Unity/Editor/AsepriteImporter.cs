@@ -9,8 +9,8 @@ using UnityEngine.U2D;
 
 namespace Aseprite2Unity.Editor
 {
-    [UnityEditor.AssetImporters.ScriptedImporter(4, new string[] { "aseprite", "ase" })]
-    public class AsepriteImporter : UnityEditor.AssetImporters.ScriptedImporter, IAseVisitor
+    [UnityEditor.Experimental.AssetImporters.ScriptedImporter(4, new string[] { "aseprite", "ase" })]
+    public class AsepriteImporter : UnityEditor.Experimental.AssetImporters.ScriptedImporter, IAseVisitor
     {
         public const string Version = "1.1.2";
 
@@ -28,7 +28,7 @@ namespace Aseprite2Unity.Editor
         private GameObject m_GameObject;
 
         private List<Color> m_Palette;
-        UnityEditor.AssetImporters.AssetImportContext m_Context;
+        UnityEditor.Experimental.AssetImporters.AssetImportContext m_Context;
         private AseFile m_AseFile;
 
         private Color[] m_ClearPixels;
@@ -46,7 +46,7 @@ namespace Aseprite2Unity.Editor
         private List<string> m_Errors = new List<string>();
         public IEnumerable<string> Errors { get { return m_Errors; } }
 
-        public override void OnImportAsset(UnityEditor.AssetImporters.AssetImportContext ctx)
+        public override void OnImportAsset(UnityEditor.Experimental.AssetImporters.AssetImportContext ctx)
         {
             m_Errors.Clear();
 
