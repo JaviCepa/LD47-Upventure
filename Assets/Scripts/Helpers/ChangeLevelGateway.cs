@@ -9,18 +9,13 @@ public class ChangeLevelGateway : MonoBehaviour
 
     public Levels newLevel;
 
-    static float lastUseTime = 0;
-
-    const float cooldown = 0.5f;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var character = collision.gameObject.GetComponentInParent<Character>();
-        if (character != null && Time.time - lastUseTime > cooldown)
+        if (character != null)
         {
-            UpventureGameManager.instance.ChangeLevel(newLevel);
+            UpventureGameManager.instance.ChangeLevel(newLevel, this);
         }
-        UpventureGameManager.instance.spawnPoint.transform.position = transform.position;
     }
 
 

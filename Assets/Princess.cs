@@ -12,7 +12,8 @@ public class Princess : MonoBehaviour
         var character = collision.gameObject.GetComponentInParent<Character>();
         if (character != null)
         {
-            character.InputEnabled = false;
+            UpventureGameManager.instance.character.InputEnabled = false;
+            UpventureGameManager.instance.character.Input = null;
             character.CharacterHealth.SetInvulnerable(1000);
             character.CharacterHealth.CurrentHealth = 99999;
 

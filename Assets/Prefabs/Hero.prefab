@@ -712,6 +712,24 @@ MonoBehaviour:
     - {fileID: 8300000, guid: d6261066dca507b4ba11c65be11ba0d7, type: 3}
     - {fileID: 8300000, guid: 4f6320b8ed3dcaf428c80f79f6830f6a, type: 3}
     - {fileID: 8300000, guid: f75a7de6ba8812447905fc5323d4b30e, type: 3}
+  - previousSprite: {fileID: 0}
+    sprite: {fileID: -1784630493004158825, guid: fd15f61025cb0df44b2e5d630d18e77f,
+      type: 3}
+    clips:
+    - {fileID: 8300000, guid: 1cafce80d10e1864b9a2c366dc5c770f, type: 3}
+    - {fileID: 8300000, guid: eb24b4f96c41cf844a7b94b8ddec684d, type: 3}
+    - {fileID: 8300000, guid: 5d1276e61761d5f4b823fa1ecfbe5db6, type: 3}
+    - {fileID: 8300000, guid: 5d4fe846a2eff6d40a49a16195753441, type: 3}
+    - {fileID: 8300000, guid: e3962d78eaf15684d9e6152cc78edb6a, type: 3}
+  - previousSprite: {fileID: 0}
+    sprite: {fileID: 7526561394083795558, guid: fd15f61025cb0df44b2e5d630d18e77f,
+      type: 3}
+    clips:
+    - {fileID: 8300000, guid: 1cafce80d10e1864b9a2c366dc5c770f, type: 3}
+    - {fileID: 8300000, guid: eb24b4f96c41cf844a7b94b8ddec684d, type: 3}
+    - {fileID: 8300000, guid: 5d1276e61761d5f4b823fa1ecfbe5db6, type: 3}
+    - {fileID: 8300000, guid: 5d4fe846a2eff6d40a49a16195753441, type: 3}
+    - {fileID: 8300000, guid: e3962d78eaf15684d9e6152cc78edb6a, type: 3}
 --- !u!1 &5492705463583779350
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +743,7 @@ GameObject:
   - component: {fileID: 5492705463583779344}
   - component: {fileID: 5492705463583779345}
   - component: {fileID: 2615876457459192286}
+  - component: {fileID: 1423539606199907901}
   m_Layer: 10
   m_Name: Hero
   m_TagString: Untagged
@@ -896,15 +915,23 @@ MonoBehaviour:
   invulnerableTime: 0.25
   damageImmunity: []
   deathActions:
-  - actionType: 1
-    delay: 3
-    supportingData: 
-    supportingGameObject: {fileID: 0}
   - actionType: 8
-    delay: 3
-    supportingData: ResetCamera
-    supportingGameObject: {fileID: 0}
+    delay: 0.5
+    supportingData: OnHeroDeath
+    supportingGameObject: {fileID: 5492705463583779350}
   skipDamageAnimationOnDeath: 1
   skipDeathActionsOnGameOver: 0
   sendEventsOnZeroDamage: 0
   saveHealthBetweenLevels: 0
+--- !u!114 &1423539606199907901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5492705463583779350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b6f33627d6cd6749a03442501247125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

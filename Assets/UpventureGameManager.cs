@@ -18,9 +18,13 @@ public class UpventureGameManager : MonoBehaviour
     public AudioSource introMusic;
     public AudioSource themeMusic;
 
+    public GameObject heroPrefab;
+
     public Character character;
     public GameObject spawnPoint;
     public List<GameObject> levelObjects;
+
+    public StandardInput defaultInput;
 
     [ReadOnly]
     public float time = 0;
@@ -52,6 +56,7 @@ public class UpventureGameManager : MonoBehaviour
         instance = this;
         gameState = GameState.Intro;
         character.InputEnabled = false;
+
         var startLevel = GetLevelObject(Levels.Level1);
         if (!Application.isEditor)
         {
@@ -107,18 +112,18 @@ public class UpventureGameManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void ChangeLevel(Levels newLevel)
+    public void ChangeLevel(Levels newLevel, ChangeLevelGateway gateway)
     {
         if (currentLevel != newLevel)
         {
+            var previousLevel = currentLevel;
+            currentLevel = newLevel;
+            spawnPoint.transform.position = gateway.transform.position + Vector3.up * 2f;
             var sequence = DOTween.Sequence();
 
             sequence.AppendCallback(() => Fader.instance.HideScreen());
             sequence.AppendInterval(0.5f);
             sequence.AppendCallback(() => {
-                spawnPoint.transform.position = character.transform.position + Vector3.up;
-                var previousLevel = currentLevel;
-                currentLevel = newLevel;
                 var previous = GetLevelObject(previousLevel);
                 var current = GetLevelObject(currentLevel);
                 current.SetActive(true);
@@ -185,7 +190,7 @@ public class UpventureGameManager : MonoBehaviour
         character.InputEnabled = true;
     }
 
-    void OnHeroDeath()
+    public void OnHeroDeath(Hero hero)
     {
 
         var sequence = DOTween.Sequence();
@@ -203,6 +208,14 @@ public class UpventureGameManager : MonoBehaviour
             }
 
             darkLord.OnCharacterDeath();
+
+            Destroy(character.gameObject);
+
+            var newHero = Instantiate(heroPrefab, spawnPoint.transform.position, Quaternion.identity) as GameObject;
+            character = newHero.GetComponent<Character>();
+            character.Input = defaultInput;
+            proCamera.RemoveAllCameraTargets();
+            proCamera.AddCameraTarget(character.transform);
 
             Vector2 spawnPosition = new Vector2(spawnPoint.transform.position.x, spawnPoint.transform.position.y);
             proCamera.MoveCameraInstantlyToPosition(spawnPosition);

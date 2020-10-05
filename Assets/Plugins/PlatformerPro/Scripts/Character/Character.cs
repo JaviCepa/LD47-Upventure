@@ -661,6 +661,7 @@ namespace PlatformerPro
 			{
 				return input;
 			}
+			set { input = value; }
 		}
 		
 		/// <summary>
